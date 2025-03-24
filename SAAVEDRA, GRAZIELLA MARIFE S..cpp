@@ -213,7 +213,7 @@ int main(){
                 else{
                     int id;
                     string ans;
-                    cout<<"\n-----DELETE STUDENT DATA-----"<<endl;
+                    cout<<"-----DELETE STUDENT DATA-----"<<endl;
                     cout<<"Enter Student ID: ";
                     cin>>id;
                     if(searchID(p, counter, id) == true){
