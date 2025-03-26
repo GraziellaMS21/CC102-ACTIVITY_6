@@ -110,17 +110,22 @@ void editStudent(Student p[], int counter, int id) {
     }
 }
 
-void removeStudent(Student p[], int counter, int id){
-    for (int i = 0; i < counter - 1; i++) {
-        for (int j = 0; j < counter - 1; j++) {
-            if(id == p[i].studentID){
-                Student temp = p[j];
-                p[j] = p[j + 1];
-                p[j + 1] = temp;
-            }
+void removeStudent(Student p[], int counter, int id) {
+    int index = -1;
+
+    for (int i = 0; i < counter; i++) {
+        if (p[i].studentID == id) {
+            index = i;
+            break;
         }
     }
-    cout<<"\nStudent Removed Successfully!"<<endl;
+
+    if (index != -1) {
+        for (int i = index; i < counter - 1; i++) {
+            p[i] = p[i + 1];
+        }
+        cout << "\nStudent Removed Successfully!" << endl;
+    }
 }
 
 
