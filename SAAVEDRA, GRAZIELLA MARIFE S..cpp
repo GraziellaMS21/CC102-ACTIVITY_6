@@ -166,7 +166,6 @@ void viewStudentGPA(Student p[], int counter){
 
 int main(){
     int opt;
-    int n=0;
     Student p[10000];
     int counter=0;
 
@@ -213,12 +212,12 @@ int main(){
 
             case 3:
                 if(counter==0){
-                    cout<<"\nThe Student List is Empty!"<<endl;
+                    cout<<"\nThe Student List is Empty!\n"<<endl;
                 }
                 else{
                     int id;
                     string ans;
-                    cout<<"\n-----DELETE STUDENT DATA-----"<<endl;
+                    cout<<"-----DELETE STUDENT DATA-----"<<endl;
                     cout<<"Enter Student ID: ";
                     cin>>id;
                     if(searchID(p, counter, id) == true){
@@ -240,43 +239,48 @@ int main(){
             break;
 
             case 4:
-                int optSort;
-                do{
-                    system("cls");
-                    cout<<"-----VIEWING OPTIONS-----"<<endl;
-                    cout<<"1] Alphabetically"<<endl;
-                    cout<<"2] GPA"<<endl;
-                    cout<<"3] Return"<<endl;
-                    cout<<"Enter Option: ";
-                    cin>>optSort;
+                if(counter==0){
+                    cout<<"\nThe Student List is Empty!\n"<<endl;
+                }
+                else{
+                    int optSort;
+                    do{
+                        system("cls");
+                        cout<<"-----VIEWING OPTIONS-----"<<endl;
+                        cout<<"1] Alphabetically"<<endl;
+                        cout<<"2] GPA"<<endl;
+                        cout<<"3] Return"<<endl;
+                        cout<<"Enter Option: ";
+                        cin>>optSort;
 
-                    switch(optSort){
-                        case 1:
-                            {
-                                viewStudentAlphabetical(p, counter);
-                                string ans;
-                                cout<<"\nReturn to Viewing Options? (Yes / No): ";
-                                cin>>ans;
-                                if(tolower(ans[0]) == 'n'){
-                                   cout<<"\nThank You for Using my Program!"<<endl;
-                                   return 0;
+                        switch(optSort){
+                            case 1:
+                                {
+                                    viewStudentAlphabetical(p, counter);
+                                    string ans;
+                                    cout<<"\nReturn to Viewing Options? (Yes / No): ";
+                                    cin>>ans;
+                                    if(tolower(ans[0]) == 'n'){
+                                       cout<<"\nThank You for Using my Program!"<<endl;
+                                       return 0;
+                                    }
                                 }
-                            }
-                        break;
+                            break;
 
-                        case 2:
-                                viewStudentGPA(p, counter);
-                                string ans;
-                                cout<<"\nReturn to Viewing Options? (Yes / No): ";
-                                cin>>ans;
-                                if(tolower(ans[0]) == 'n'){
-                                   cout<<"\nThank You for Using my Program!"<<endl;
-                                   return 0;
-                                }
-                        break;
-                    }
-                }while(optSort != 3);
-            cout<<endl;
+                            case 2:
+                                    viewStudentGPA(p, counter);
+                                    string ans;
+                                    cout<<"\nReturn to Viewing Options? (Yes / No): ";
+                                    cin>>ans;
+                                    if(tolower(ans[0]) == 'n'){
+                                       cout<<"\nThank You for Using my Program!"<<endl;
+                                       return 0;
+                                    }
+                            break;
+                        }
+                    }while(optSort != 3);
+                cout<<endl;
+                }
             break;
 
             case 5:
