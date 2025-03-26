@@ -111,9 +111,13 @@ void editStudent(Student p[], int counter, int id) {
 }
 
 void removeStudent(Student p[], int counter, int id){
-    for (int i=0; i<counter-1; i++){
-        if (id == p[i].studentID){
-            p[i] = p[i+1];
+    for (int i = 0; i < counter - 1; i++) {
+        for (int j = 0; j < counter - 1; j++) {
+            if(id == p[i].studentID){
+                Student temp = p[j];
+                p[j] = p[j + 1];
+                p[j + 1] = temp;
+            }
         }
     }
     cout<<"\nStudent Removed Successfully!"<<endl;
@@ -202,6 +206,7 @@ int main(){
                     searchStudent(p, counter, id);
                     cout<<endl;
                     editStudent(p, counter, id);
+                    cout<<"Student Successfully Edited!"<<endl;
                 }
                 }
             break;
@@ -213,7 +218,7 @@ int main(){
                 else{
                     int id;
                     string ans;
-                    cout<<"-----DELETE STUDENT DATA-----"<<endl;
+                    cout<<"\n-----DELETE STUDENT DATA-----"<<endl;
                     cout<<"Enter Student ID: ";
                     cin>>id;
                     if(searchID(p, counter, id) == true){
@@ -277,6 +282,10 @@ int main(){
             case 5:
                 cout<<"\nThank You for Using my Program!"<<endl;
                 return 0;
+
+            default:
+                cout<<"Invalid Input. Please Try Again!\n"<<endl;
+            break;
         }
     }
     return 0;
